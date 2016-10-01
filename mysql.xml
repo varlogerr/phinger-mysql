@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <project name="phinger_mysql">
-    <target name="phinger:mysql:dump-create" description="Dump database to an sql file">
+    <target name="vlog:mysql:_init">
+        <mkdir dir="${phinger.mysql.dump_dir}" />
+    </target>
+
+    <target name="phinger:mysql:dump-create" description="Dump database to an sql file"
+            depends="vlog:mysql:_init">
         <property name="phinger.mysql._command_part" value="" />
 
         <if>
