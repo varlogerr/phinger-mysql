@@ -1,0 +1,12 @@
+{
+    "name": "phinger/mysql",
+    "description": "Phing predefined mysql targets module",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Varlog",
+            "email": "varlog.err@gmail.com"
+        }
+    ],
+    "require": {}
+}
