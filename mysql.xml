@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="phinger_mysql">
+    <target name="phinger:mysql:dump-create" description="Dump database to an sql file">
+        <property name="phinger.mysql._command_part" value="" />
+
+        <if>
+            <not>
+                <equals arg1="${phinger.mysql.dbpass}" arg2=""/>
+            </not>
+            <then>
+                <property
+                        name="phinger.mysql._command_part"
+                        value="${phinger.mysql._command_part}-p${phinger.mysql.dbpass}"
+                        override="true"
+                />
+            </then>
+        </if>
+
+        <exec
+                command="${phinger.mysql.dumputil_path} -u${phinger.mysql.dbuser} ${phinger.mysql._command_part}
+                         -h${phinger.mysql.dbhost}  ${phinger.mysql.dbname} --port=${phinger.mysql.dbport} &gt; ${phinger.mysql.dump_dir}/dump.sql"
+                checkreturn="true"
+                passthru="true"
+        />
+    </target>
+</project>
