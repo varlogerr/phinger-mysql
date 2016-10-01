@@ -7,13 +7,15 @@
 
     <!--
     Required properties (defaults):
-        dbhost        ("127.0.0.1")
-        dbport        (3306)
-        dbname        ("acme")
-        dbuser        ("root")
-        dbpass        ("")
-        dumputil_path ("/usr/bin/mysqldump")
-        dump_dir      ("./backup/mysql")
+        dbhost           ("127.0.0.1")
+        dbport           (3306)
+        dbname           ("acme")
+        dbuser           ("root")
+        dbpass           ("")
+        dumputil_path    ("/usr/bin/mysqldump")
+        dump_dir         ("./backup/mysql")
+        dump_no_comments (true)
+        dump_no_locks    (true)
     -->
     <target name="phinger:mysql:dump-create" description="Dump database to an sql file"
             depends="vlog:mysql:_init">
@@ -27,6 +29,28 @@
                 <property
                         name="phinger.mysql._command_part"
                         value="${phinger.mysql._command_part}-p${phinger.mysql.dbpass}"
+                        override="true"
+                />
+            </then>
+        </if>
+
+        <if>
+            <equals arg1="${phinger.mysql.dump_no_comments}" arg2="true" />
+            <then>
+                <property
+                        name="phinger.mysql._command_part"
+                        value="${phinger.mysql._command_part} --skip-comments"
+                        override="true"
+                />
+            </then>
+        </if>
+
+        <if>
+            <equals arg1="${phinger.mysql.dump_no_locks}" arg2="true" />
+            <then>
+                <property
+                        name="phinger.mysql._command_part"
+                        value="${phinger.mysql._command_part} --skip-add-locks"
                         override="true"
                 />
             </then>

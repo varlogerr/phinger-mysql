@@ -7,3 +7,5 @@ phinger:
     dbpass: ""
     dumputil_path: "/usr/bin/mysqldump"
     dump_dir: "./backup/mysql"
+    dump_no_comments: true
+    dump_no_locks: true
