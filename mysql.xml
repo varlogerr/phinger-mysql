@@ -5,6 +5,16 @@
         <mkdir dir="${phinger.mysql.dump_dir}" />
     </target>
 
+    <!--
+    Required properties (defaults):
+        dbhost        ("127.0.0.1")
+        dbport        (3306)
+        dbname        ("acme")
+        dbuser        ("root")
+        dbpass        ("")
+        dumputil_path ("/usr/bin/mysqldump")
+        dump_dir      ("./backup/mysql")
+    -->
     <target name="phinger:mysql:dump-create" description="Dump database to an sql file"
             depends="vlog:mysql:_init">
         <property name="phinger.mysql._command_part" value="" />
