@@ -5,7 +5,7 @@ phinger:
     dbname: acme
     dbuser: root
     dbpass: ''
-    dumputil_path: /usr/bin/mysqldump
+    dumper_bin_path: /usr/bin/mysqldump
     dump_path: ./backup/sql/dump.sql
     dump_no_comments: true
     dump_no_locks: true

@@ -8,15 +8,15 @@
 
     <!--
     Required properties (defaults):
-        phinger.mysql.dbhost           (127.0.0.1)
-        phinger.mysql.dbport           (3306)
-        phinger.mysql.dbname           (acme)
-        phinger.mysql.dbuser           (root)
-        phinger.mysql.dbpass           ('')
-        phinger.mysql.dumputil_path    (/usr/bin/mysqldump)
-        phinger.mysql.dump_path        (./backup/sql/dump.sql)
-        phinger.mysql.dump_no_comments (true)
-        phinger.mysql.dump_no_locks    (true)
+        phinger.mysql.dbhost             (127.0.0.1)
+        phinger.mysql.dbport             (3306)
+        phinger.mysql.dbname             (acme)
+        phinger.mysql.dbuser             (root)
+        phinger.mysql.dbpass             ('')
+        phinger.mysql.dumper_bin_path    (/usr/bin/mysqldump)
+        phinger.mysql.dump_path          (./backup/sql/dump.sql)
+        phinger.mysql.dump_no_comments   (true)
+        phinger.mysql.dump_no_locks      (true)
     -->
     <target name="phinger:mysql:dump-create" description="Dump database to an sql file"
             depends="vlog:mysql:_init">
@@ -58,7 +58,7 @@
         </if>
 
         <exec
-                command="${phinger.mysql.dumputil_path} -u${phinger.mysql.dbuser} ${phinger.mysql._command_part}
+                command="${phinger.mysql.dumper_bin_path} -u${phinger.mysql.dbuser} ${phinger.mysql._command_part}
                          -h${phinger.mysql.dbhost}  ${phinger.mysql.dbname} --port=${phinger.mysql.dbport} &gt; ${phinger.mysql.dump_path}"
                 checkreturn="true"
                 passthru="true"
