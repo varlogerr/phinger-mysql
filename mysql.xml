@@ -2,7 +2,8 @@
 
 <project name="phinger_mysql">
     <target name="vlog:mysql:_init">
-        <mkdir dir="${phinger.mysql.dump_dir}" />
+        <dirname file="${phinger.mysql.dump_path}" property="phinger.mysql._dump_dir" />
+        <mkdir dir="${phinger.mysql._dump_dir}" />
     </target>
 
     <!--
@@ -13,7 +14,7 @@
         phinger.mysql.dbuser           (root)
         phinger.mysql.dbpass           ('')
         phinger.mysql.dumputil_path    (/usr/bin/mysqldump)
-        phinger.mysql.dump_dir         (./backup/sql)
+        phinger.mysql.dump_path        (./backup/sql/dump.sql)
         phinger.mysql.dump_no_comments (true)
         phinger.mysql.dump_no_locks    (true)
     -->
@@ -58,7 +59,7 @@
 
         <exec
                 command="${phinger.mysql.dumputil_path} -u${phinger.mysql.dbuser} ${phinger.mysql._command_part}
-                         -h${phinger.mysql.dbhost}  ${phinger.mysql.dbname} --port=${phinger.mysql.dbport} &gt; ${phinger.mysql.dump_dir}/dump.sql"
+                         -h${phinger.mysql.dbhost}  ${phinger.mysql.dbname} --port=${phinger.mysql.dbport} &gt; ${phinger.mysql.dump_path}"
                 checkreturn="true"
                 passthru="true"
         />
