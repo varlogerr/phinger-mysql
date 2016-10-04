@@ -1,11 +1,11 @@
 phinger:
   mysql:
-    dbhost: "127.0.0.1"
+    dbhost: 127.0.0.1
     dbport: 3306
-    dbname: "acme"
-    dbuser: "root"
-    dbpass: ""
-    dumputil_path: "/usr/bin/mysqldump"
-    dump_dir: "./backup/sql"
+    dbname: acme
+    dbuser: root
+    dbpass: ''
+    dumputil_path: /usr/bin/mysqldump
+    dump_dir: ./backup/sql
     dump_no_comments: true
     dump_no_locks: true
