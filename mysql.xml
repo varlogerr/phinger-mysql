@@ -13,7 +13,7 @@
         dbuser           ("root")
         dbpass           ("")
         dumputil_path    ("/usr/bin/mysqldump")
-        dump_dir         ("./backup/mysql")
+        dump_dir         ("./backup/sql")
         dump_no_comments (true)
         dump_no_locks    (true)
     -->
