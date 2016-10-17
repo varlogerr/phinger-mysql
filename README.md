@@ -41,8 +41,8 @@ _{project-path}/build.xml_
 >
     <property file="./my-conf.yml" />
     
-    <property file="{path-to-lib}/mysql.yml" override="false" />
-    <import file="{path-to-lib}/mysql.xml" />
+    <property file="./vendor/phinger/mysql/mysql.yml" override="false" />
+    <import file="./vendor/phinger/mysql/mysql.xml" />
     
     <target
             name="dump-db"
