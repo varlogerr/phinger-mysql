@@ -50,3 +50,20 @@ _{project-path}/build.xml_
     />
 </project>
 ```
+
+## Targets
+
+### Dump database to an sql file
+`phinger:mysql:dump-create `  
+**NB** Dump-file directory will be created if it doesn't exist
+
+#### Properties / params (defaults):
+* `phinger.mysql.dbhost`           (127.0.0.1)  
+* `phinger.mysql.dbport`           (3306)  
+* `phinger.mysql.dbname`           (acme)  
+* `phinger.mysql.dbuser`           (root)  
+* `phinger.mysql.dbpass`           ('')  
+* `phinger.mysql.dumper_bin_path`  (/usr/bin/mysqldump)  
+* `phinger.mysql.dump_path`        (./backup/sql/dump.sql)  
+* `phinger.mysql.dump_no_comments` (true)  
+* `phinger.mysql.dump_no_locks`    (true)  
