@@ -15,7 +15,7 @@ to your build file
 4) Run `phing -l` if you want to list all available targets  
 5) Use library targets  
 
-### Demo
+## Usage Demo
 
 This demo will create a dump of 'my_database' in './backup/mysql/dump.sql' file.  
 
