@@ -2,6 +2,7 @@
     "name": "phinger/mysql",
     "description": "Phing predefined mysql targets module",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Varlog",
